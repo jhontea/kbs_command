@@ -6,10 +6,17 @@ import (
 
 // SumCommand :nodoc
 type SumCommand struct {
-	Device receiver.Device
+	device receiver.DeviceReceiverInterface
+}
+
+// NewSumCommand :nodoc:
+func NewSumCommand(d receiver.DeviceReceiverInterface) Command {
+	return &SumCommand{
+		device: d,
+	}
 }
 
 // Execute :nodoc:
 func (c *SumCommand) Execute() {
-	c.Device.Sum()
+	c.device.Sum()
 }

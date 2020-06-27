@@ -1,7 +1,7 @@
 package receiver
 
-// Device :nodoc:
-type Device interface {
+// DeviceReceiverInterface :nodoc:
+type DeviceReceiverInterface interface {
 	Sum()
 	Multiply()
 	Prime()

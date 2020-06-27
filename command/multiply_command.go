@@ -6,10 +6,17 @@ import (
 
 // MultiplyCommand :nodoc
 type MultiplyCommand struct {
-	Device receiver.Device
+	device receiver.DeviceReceiverInterface
+}
+
+// NewMultiplyCommand :nodoc:
+func NewMultiplyCommand(d receiver.DeviceReceiverInterface) Command {
+	return &MultiplyCommand{
+		device: d,
+	}
 }
 
 // Execute :nodoc:
 func (c *MultiplyCommand) Execute() {
-	c.Device.Multiply()
+	c.device.Multiply()
 }

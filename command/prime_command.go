@@ -6,10 +6,17 @@ import (
 
 // PrimeCommand :nodoc
 type PrimeCommand struct {
-	Device receiver.Device
+	device receiver.DeviceReceiverInterface
+}
+
+// NewPrimeCommand :nodoc:
+func NewPrimeCommand(d receiver.DeviceReceiverInterface) Command {
+	return &PrimeCommand{
+		device: d,
+	}
 }
 
 // Execute :nodoc:
 func (c *PrimeCommand) Execute() {
-	c.Device.Prime()
+	c.device.Prime()
 }

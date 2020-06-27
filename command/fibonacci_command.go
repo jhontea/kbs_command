@@ -6,10 +6,17 @@ import (
 
 // FibonacciCommand :nodoc
 type FibonacciCommand struct {
-	Device receiver.Device
+	device receiver.DeviceReceiverInterface
+}
+
+// NewFibonacciCommand :nodoc:
+func NewFibonacciCommand(d receiver.DeviceReceiverInterface) Command {
+	return &FibonacciCommand{
+		device: d,
+	}
 }
 
 // Execute :nodoc:
 func (c *FibonacciCommand) Execute() {
-	c.Device.Fibonacci()
+	c.device.Fibonacci()
 }
