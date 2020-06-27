@@ -12,16 +12,6 @@ type Invoker struct {
 	fibonacciCommand command.Command
 }
 
-// Inv :nodoc:
-type Inv struct {
-	command command.Command
-}
-
-// Do :nodoc:
-func (i *Inv) Do() {
-	i.command.Execute()
-}
-
 // NewInvoker :nodoc:
 func NewInvoker(sum, multiply, prime, fibonacci command.Command) Invoker {
 	return Invoker{
