@@ -18,8 +18,30 @@ func main() {
 
 	// set command for invoker
 	invoke := invoker.NewInvoker(sumCommand, multiplyCommand, primeCommand, fibonacciCommand)
+
+	var a, b, n int
+
+	// invoke sum a + b
+	a = 1
+	b = 2
+	device1.SetA(a)
+	device1.SetB(b)
 	invoke.Sum()
+
+	// invoke multiply a * b
+	a = 1
+	b = 3
+	device1.SetA(a)
+	device1.SetB(b)
 	invoke.Multiply()
+
+	// invoke first n prime
+	n = 4
+	device1.SetN(n)
 	invoke.Prime()
+
+	// invoke first n fibonacci
+	n = 5
+	device1.SetN(n)
 	invoke.Fibonacci()
 }
